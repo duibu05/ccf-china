@@ -1,0 +1,80 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{i18n.INDEX.TITLE}}</title>
+<style type="text/css">
+#subbanner img {
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  /* For IE8 and earlier */
+}
+
+#subbanner img:hover {
+  opacity: 1.0;
+  filter: alpha(opacity=100);
+  /* For IE8 and earlier */
+}
+
+#subbanner a {
+  display: block;
+  color: #000;
+}
+
+#subbanner a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+#subbanner a:hover h3,
+#subbanner a:hover p {
+  text-decoration: underline;
+}
+
+#subbanner a p {
+  color: #0078d7;
+}
+</style>
+{{/block}}
+
+{{#block ("body")}}
+  <div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+    <!-- banner -->
+    <div id="carousel-santel-captions" class="carousel slide margin-bottom-50" data-ride="carousel">
+      <ol class="carousel-indicators">
+        {{#each(banners)}}
+        <li data-target="#carousel-santel-captions" data-slide-to="{{xindex}}" class="{{#if(xindex===0)}}active{{/if}}"></li>
+        {{/each}}
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        {{#each(banners)}}
+        <div class="item {{#if(xindex===0)}}active{{/if}}">
+          <a href="/product/category/{{this.applicationArea.category._id}}"></a>
+          <img alt="900x500" src="{{qiniuDownloadDomain+this.url}}" data-holder-rendered="true">
+          <div class="carousel-caption">
+            <h1>{{this.title}}</h1>
+            <p>{{this.brief}}</p>
+            <button class="btn btn-lg btn-primary">{{i18n.COMMON.LEARN_MORE}} > </button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="row" id="subbanner">
+      {{#each(recommandedAAs)}}
+      <div class="col-md-3 col-sm-10">
+        <div class="thumbnail">
+          <a href="/application-area/{{this.applicationArea}}"><img src="{{qiniuDownloadDomain+this.url}}" alt="..."></a>
+          <div class="caption">
+            <a href="/application-area/{{this.applicationArea}}">
+              <h3>{{this.title}}</h3>
+              <span>{{this.brief}}</span>
+              <p>{{i18n.COMMON.LEARN_MORE}} > </p>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="clearfix"></div>
+{{/block}}
+

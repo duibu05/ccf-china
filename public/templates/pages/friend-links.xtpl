@@ -1,0 +1,36 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{i18n.COMMON.FRIEND_LINKS}}</title>
+<style type="text/css">
+  #friend-links li {
+    height: 53px;
+    line-height: 53px;
+    margin-right: 20px;
+    width: auto;
+    float: left;
+    min-width: 160px;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="breadcrumbs hidden">
+  <a href="#" alt="breadcrumbs">Home</a> > {{i18n.COMMON.FRIEND_LINKS}}
+</div>
+<div class="pure-banner">
+  <h1 class="text-center">{{i18n.COMMON.FRIEND_LINKS}}</h1>
+</div>
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  {{#each(friendLinkCategories)}}
+  <h2 class="sub-page-h2">{{this.title}}</h2>
+  <ul id="friend-links">
+    {{#each(this.links)}}
+    <li><a href="{{this.url}}" target="_blank">{{this.name}}</a></li>
+    {{/each}}
+  </ul>
+  <div class="clearfix"></div>
+  {{/each}}
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

@@ -1,0 +1,218 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{product.name}}</title>
+<style type="text/css">
+  .product-sell-point {
+    margin-bottom: 80px;
+    font-family: "Segoe UI Semilight", "SegoeUI_semilight";
+    font-size: 20px;
+    color: #000;
+  }
+  .product-sell-point p{
+    white-space: pre-wrap;
+    text-align:center;
+  }
+  .sell-point-img{text-align:center;}
+  .sell-point-img img{
+    display:inline !important;
+  }
+
+  @media (min-width: 992px) {
+    .product-sell-point-desc-vertical {
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+    .product-sell-point-desc-horizontal {
+      width: 75%;
+      padding-left: 15%;
+      padding-top: 15%;
+    }
+  }
+
+  .product-sell-point-desc-vertical {
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
+
+  .product-details {
+    border-bottom: solid 1px #efefef;
+  }
+
+  .product-details .product-title{
+    font-size: 24px;
+    line-height: 2.7;
+    display: block;
+    font-weight: 200;
+    color: #262626;
+  }
+
+  .product-subnav>ul {
+    margin: 0;
+    position: relative;
+  }
+
+  .product-subnav>ul>li {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .product-subnav>ul>li {
+      width: 100%;
+    }
+    .devices-list {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .product-subnav>ul>li>a {
+    margin: 0;
+    padding: 25px;
+    display: block;
+    color: #333;
+  }
+
+  .product-subnav>ul>li>a:hover,
+  .product-subnav>ul>li>a:focus {
+    background-color: #e7e7e7;
+    text-decoration: none;
+  }
+
+  .devices-list>li>a {
+    padding-left: 35px !important;
+  }
+
+  .devices-list>li>a:visited,
+  .devices-list>li>a:hover,
+  .devices-list>li>a:active {
+    background-color: #ccc;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  #tech-specs{
+    font-weight: lighter;
+  }
+
+  .tech-specs {
+    padding-bottom: 80px;
+  }
+  .tech-spec-row{
+    display: block;
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+  .tech-specs pre{
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: normal;
+    word-wrap: normal;
+    font-size:15px;
+    font-family: inherit !important;
+  }
+
+  .tech-specs>div>div {
+    border-top: dotted 1px gray;
+    margin: 0;
+    margin-bottom: 2px;
+    padding: 25px 0;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <div class="breadcrumbs hidden">
+    <a href="/" alt="breadcrumbs">Home</a> > {{solution.name}}
+  </div>
+  <div class="row product-details">
+    <div class="col-md-4">
+      <span class="product-title">{{solution.name}}</span >
+    </div>
+    <div class="col-md-8 product-subnav">
+      <ul class="list-inline pull-right">
+        {{#if(solution.techSpecs.length)}}
+        <li><a href="#tech-specs">{{i18n.PRODUCT.TECH_SPECS}}</a></li>
+        {{/if}}
+        <li><a href="/contact">{{i18n.PRODUCT.WHERE_TO_BUY}}</a></li>
+      </ul>
+    </div>
+  </div>
+  {{#each(solution.advantages)}}
+  {{#if(this.layout===1)}}
+  <div class="row product-sell-point">
+    <div class="col-md-12">
+      <div class="product-sell-point-desc-vertical">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+      </div>
+      <div class="product sell-point-img">
+        <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.layout===0)}}
+  <div class="row product-sell-point">
+    <div class="col-md-6 col-sm-12">
+      <div class="product-sell-point-desc-horizontal">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.layout===3)}}
+  <div class="row product-sell-point">
+    <div class="col-md-12">
+      <div class="product sell-point-img">
+        <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+      </div>
+      <div class="product-sell-point-desc-vertical">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.layout===2)}}
+  <div class="row product-sell-point">
+    <div class="col-md-6 col-sm-12">
+      <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="product-sell-point-desc-horizontal">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+  {{#if(solution.techSpecs.length)}}
+  <h2 id="tech-specs">{{i18n.PRODUCT.TECH_SPECS}}</h2>
+  <div class="row tech-specs">
+    {{#each(solution.techSpecs)}}
+    <div class="col-md-6 col-sm-12">
+      <div class="tech-spec-row">
+        <div class="pull-left"><pre>{{this.name}}</pre></div>
+        <div class="pull-right"><pre>{{this.value}}</pre></div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

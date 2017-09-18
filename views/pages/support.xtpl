@@ -1,0 +1,67 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{i18n.SUPPORT.TITLE}}</title>
+<style type="text/css">
+  .support-list>div {
+    border-top: solid 1px #efefef;
+    padding: 25px;
+  }
+
+  .find-distributors a {
+    color: #0078d7;
+  }
+
+  .find-distributors a:hover {
+    color: #0078d7;
+  }
+  .pre-sale{
+    font-size: 14px;
+  }
+
+  .pre-sale .title{
+    font-size: 16px;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="breadcrumbs hidden">
+  <a href="/" alt="breadcrumbs">Home</a> > {{i18n.SUPPORT.TITLE}}
+</div>
+<div class="pure-banner">
+  <h1 class="text-center">{{i18n.SUPPORT.SLOGN}}</h1>
+</div>
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  {{#if(whitePapers.length)}}
+  <h2 class="sub-page-h2" id="white-papers">{{i18n.COMMON.WHITE_PAPER}}</h2>
+  {{/if}}
+  <div class="row support-list">
+    {{#each(whitePapers)}}
+    <div class="col-md-6">
+      <a href="{{qiniuDownloadDomain+this.file.url}}">{{this.title}}</a>
+    </div>
+    {{/each}}
+  </div>
+  <h2 class="sub-page-h2" id="applications">{{i18n.COMMON.APPLICATION}}</h2>
+  <div class="row support-list">
+    {{#each(applications)}}
+    <div class="col-md-6">
+      <a href="{{qiniuDownloadDomain+this.file.url}}">{{this.title}}</a>
+    </div>
+    {{/each}}
+  </div>
+  {{#if(faqCategories.length)}}
+  <h2 class="sub-page-h2" id="faqs">{{i18n.COMMON.FAQS}}</h2>
+  {{/if}}
+  <div class="row support-list">
+    {{#each(faqCategories)}}
+    <div class="col-md-6">
+      <a href="/faq/category/{{this._id}}">{{this.title}}</a>
+    </div>
+    {{/each}}
+  </div>
+
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

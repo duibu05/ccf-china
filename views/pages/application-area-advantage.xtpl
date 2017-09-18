@@ -1,0 +1,152 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{applicationArea.name}}</title>
+<style type="text/css">
+  .application-area-sell-point {
+    margin-bottom: 80px;
+    font-family: "Segoe UI Semilight", "SegoeUI_semilight";
+    font-size: 20px;
+    color: #000;
+  }
+  .application-area-sell-point p{
+    white-space: pre-wrap;
+    text-align:center;
+  }
+  .sell-point-img{text-align:center;}
+  .sell-point-img img{
+    display:inline !important;
+  }
+  .application-area-sell-point a {
+    color: #0078d7;
+  }
+
+  @media (min-width: 992px) {
+    .application-area-sell-point-desc-vertical {
+      width: 65%;
+      margin-left: 17.5%;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+    .application-area-sell-point-desc-horizontal {
+      width: 75%;
+      padding-left: 15%;
+      padding-top: 15%;
+    }
+  }
+
+  .application-area-sell-point-desc-vertical {
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
+
+  .application-area-details {
+    border-bottom: solid 1px #efefef;
+  }
+
+  .application-area-subnav>ul {
+    margin: 0;
+    position: relative;
+  }
+
+  .application-area-subnav>ul>li {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .application-area-subnav>ul>li {
+      width: 100%;
+    }
+    .devices-list {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .application-area-subnav>ul>li>a {
+    margin: 0;
+    padding: 25px;
+    display: block;
+    color: #333;
+  }
+
+  .application-area-subnav>ul>li>a:hover,
+  .application-area-subnav>ul>li>a:focus {
+    background-color: #e7e7e7;
+    text-decoration: none;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <div class="breadcrumbs hidden">
+    <a href="/" alt="breadcrumbs">Home</a> > {{applicationArea.name}}
+  </div>
+  <div class="row application-area-details">
+    <div class="col-md-6">
+      <h3>{{applicationArea.name}}</h3>
+    </div>
+  </div>
+  {{#each(advantages)}}
+  {{#if(this.layout===1)}}
+  <div class="row application-area-sell-point">
+    <div class="col-md-12">
+      <div class="application-area-sell-point-desc-vertical">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+        <div class="text-center"><a href="/product/application-area-advantage/{{this._id}}">{{i18n.APPLICATION_AREA.EXPLORE_RELATIONAL}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+      <div class="product sell-point-img">
+        <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.layout===0)}}
+  <div class="row application-area-sell-point">
+    <div class="col-md-6 col-sm-12">
+      <div class="application-area-sell-point-desc-horizontal">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+        <div class="text-center"><a href="/product/application-area-advantage/{{this._id}}">{{i18n.APPLICATION_AREA.EXPLORE_RELATIONAL}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.layout===3)}}
+  <div class="row application-area-sell-point">
+    <div class="col-md-12">
+      <div class="product sell-point-img">
+        <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+      </div>
+      <div class="application-area-sell-point-desc-vertical">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+        <div class="text-center"><a href="/product/application-area-advantage/{{this._id}}">{{i18n.APPLICATION_AREA.EXPLORE_RELATIONAL}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.layout===2)}}
+  <div class="row application-area-sell-point">
+    <div class="col-md-6 col-sm-12">
+      <img src="{{qiniuDownloadDomain+this.url}}" alt="" class="img-responsive">
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="application-area-sell-point-desc-horizontal">
+        <h2 class="text-center sub-page-h2">{{this.title}}</h2>
+        <p class="text-center">{{this.brief}}</p>
+        <div class="text-center"><a href="/product/application-area-advantage/{{this._id}}">{{i18n.APPLICATION_AREA.EXPLORE_RELATIONAL}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

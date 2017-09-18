@@ -1,0 +1,310 @@
+/*globle*/
+
+body {
+  font-family: "Segoe UI", "SegoeUI_normal", "Helvetica Neue";
+  font-size: 15px;
+  font-weight: normal;
+}
+
+a {
+  color: #626262;
+}
+
+a:hover {
+  color: #626262;
+  text-decoration: underline;
+}
+
+@font-face {
+  font-family: "SegoeUI_normal";
+  src: url("../fonts/segoe-ui/normal.eot");
+  src: local("Segoe UI"), url("../fonts/segoe-ui/normal.eot?#iefix") format("embedded-opentype"), url("../fonts/segoe-ui/normal.woff") format("woff"), url("../fonts/segoe-ui/normal.woff2") format("woff2"), url("../fonts/segoe-ui/normal.ttf") format("truetype"), url("../fonts/segoe-ui/normal.svg#web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SegoeUI_semibold";
+  src: url("../fonts/segoe-ui/semibold.eot");
+  src: local("Segoe UI Semibold"), url("../fonts/segoe-ui/semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/segoe-ui/semibold.woff") format("woff"), url("../fonts/segoe-ui/semibold.woff2") format("woff2"), url("../fonts/segoe-ui/semibold.ttf") format("truetype"), url("../fonts/segoe-ui/semibold.svg#web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SegoeUI_semilight";
+  src: url("../fonts/segoe-ui/semilight.eot");
+  src: local("Segoe UI Semilight"), url("../fonts/segoe-ui/semilight.eot?#iefix") format("embedded-opentype"), url("../fonts/segoe-ui/semilight.woff") format("woff"), url("../fonts/segoe-ui/semilight.woff2") format("woff2"), url("../fonts/segoe-ui/semilight.ttf") format("truetype"), url("../fonts/segoe-ui/semilight.svg#web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  .facing-right {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+  .navbar-brand {
+    padding: 15px 15px 0 0;
+  }
+  #footer {
+    padding-left: 0 !important;
+  }
+}
+
+.all-facing-right {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.margin-bottom-50 {
+  margin-bottom: 50px;
+}
+
+
+/*globle end*/
+
+
+/*navbar*/
+
+.navbar {
+  border-radius: 0;
+}
+
+.navbar-default {
+  background-color: white;
+  margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #2f2f2f;
+  font-size: 15px;
+}
+
+.product-list {}
+
+.dropdown-menu {
+  padding: 0 0;
+  background-color: #e7e7e7;
+  border-top: none;
+  border-left: none;
+  border-radius: 0;
+  font-size: 15px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  margin-top: 0;
+}
+
+.dropdown-menu>li>a {
+  padding: 17px 24px !important;
+  white-space: normal;
+  min-width: 340px;
+  /*cursor: default;*/
+  min-height: 40px;
+}
+
+.dropdown-menu>li>a>i {
+  display: inline-block;
+  float: right;
+  margin: 10px 0;
+}
+
+.product-submenu {
+  width: 300px;
+  overflow: hidden;
+  left: 340px;
+  top: 0;
+  background-color: #d9d9d9;
+}
+
+.product-submenu>li>a {
+  padding-left: 35px !important;
+}
+
+.product-submenu>li>a:visited,
+.product-submenu>li>a:hover,
+.product-submenu>li>a:active {
+  background-color: #ccc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.solution-submenu {
+  width: 300px;
+  overflow: hidden;
+  left: 340px;
+  top: 0;
+  background-color: #d9d9d9;
+}
+
+.solution-submenu>li>a {
+  padding-left: 35px !important;
+}
+
+.solution-submenu>li>a:visited,
+.solution-submenu>li>a:hover,
+.solution-submenu>li>a:active {
+  background-color: #ccc;
+  text-decoration: underline;
+}
+
+
+/*navbar end*/
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.carousel-indicators .active {
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  background-color: #000;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 33%;
+  bottom: 33%;
+  left: 120px;
+  padding-bottom: 50px;
+  color: #fff;
+  text-align: left;
+  text-shadow: none;
+  font-size: 1.33em;
+  font-weight: 200;
+  color: black;
+  width: 35%;
+}
+
+.carousel-caption .btn {
+  text-shadow: none;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
+  }
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -10px;
+  }
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -10px;
+  }
+  .carousel-caption {
+    position: relative;
+    padding: 15px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 15px !important;
+    width: 100%;
+  }
+  .carousel-caption h1 {
+    font-size: 20px !important;
+  }
+  .carousel-inner>.item>img {
+    width: 100%;
+    max-height: 600px;
+  }
+  .carousel-indicators {
+    bottom: -40px;
+  }
+  .pure-banner>h1 {
+    font-size: 2em !important;
+  }
+  .sub-page-h2 {
+    font-size: 1.8em !important;
+    margin-left: 10px;
+  }
+}
+
+.carousel-caption>button {
+  background-color: #0078d7;
+  border-radius: 0;
+  padding: 10px 30px;
+  font-size: 13px;
+}
+
+.carousel-inner>.item>a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1000;
+}
+
+.carousel-inner>.item>img {
+  width: 100%;
+}
+
+.pure-banner {
+  height: 320px;
+  background-color: #0078d7;
+}
+
+.pure-banner>h1 {
+  color: white;
+  font-size: 46px;
+  font-family: "Segoe UI Semilight", "SegoeUI_semilight";
+  padding-top: 135px;
+  font-weight: lighter;
+}
+
+#footer {
+  background-color: #f2f2f2;
+  padding: 30px;
+  padding-bottom: 0;
+  line-height: 2;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.footer-head {
+  font-size: 15px;
+  color: #2f2f2f;
+  font-weight: bolder;
+}
+
+.footer-link a {
+  font-size: .9em;
+  font-weight: normal;
+  color: #626262;
+}
+
+.sub-page-h2 {
+  font-size: 42px;
+  font-family: "Segoe UI Semilight", "SegoeUI_semilight" !important;
+  margin-bottom: 35px;
+  margin-top: 60px;
+  color: #000;
+  font-weight: lighter;
+}

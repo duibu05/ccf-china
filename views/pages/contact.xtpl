@@ -1,0 +1,51 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{i18n.CONTACT.TITLE}}</title>
+<style type="text/css">
+  .distributors>div>div {
+    border-top: dotted 1px gray;
+    margin: 15px 5px;
+    padding: 25px 0;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="breadcrumbs hidden">
+  <a href="/" alt="breadcrumbs">Home</a> > {{i18n.CONTACT.TITLE}}
+</div>
+<div class="pure-banner">
+  <h1 class="text-center">{{i18n.CONTACT.TITLE}}</h1>
+</div>
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <h2 class="sub-page-h2">{{i18n.CONTACT.HEAD_OFFICE}}</h2>
+  <address>
+    {{headOffice.address}}
+    <br>
+    <abbr title="Phone">P:</abbr> {{headOffice.phone}} <br>
+    Email: <a href="mailto:{{headOffice.email}}">{{headOffice.email}}</a>
+  </address>
+  {{#if(distributors.length)}}
+  <h2 class="sub-page-h2" id="distributors">{{i18n.CONTACT.DISTRIBUTOR}}</h2>
+  <div class="row distributors">
+    {{#each(distributors)}}
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-xs-6">{{this.name}}</div>
+        <div class="col-xs-6">
+          <address>
+            {{this.address}}
+            <br>
+            <abbr title="Phone">P:</abbr> {{this.phone}} <br>
+           Email: <a href="mailto:{{this.email}}">{{this.email}}</a>
+          </address>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

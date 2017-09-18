@@ -1,0 +1,66 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{i18n.COMPANY.TITLE}}</title>
+<style type="text/css">
+  .company-desc {
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
+  .company-desc span{
+    white-space: pre-wrap;
+  }
+
+  .important-dates {
+    padding-bottom: 80px;
+  }
+
+  .important-dates>div>div {
+    border-top: dotted 1px gray;
+    margin: 15px 5px;
+    padding: 25px 0;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <div class="breadcrumbs hidden">
+    <a href="/" alt="breadcrumbs">Home</a> > {{i18n.COMPANY.TITLE}}
+  </div>
+  <div class="company-desc">
+    <h2 class="sub-page-h2">{{i18n.COMPANY.TITLE}}</h2>
+    <span>{{company.brief}}</span>
+  </div>
+</div>
+<img src="{{qiniuDownloadDomain+company.picture}}" alt="" class="img-responsive">
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <h2 class="sub-page-h2">{{i18n.COMPANY.VALUES}}</h2>
+  <div class="row" id="what-we-value">
+  {{#each(company.values)}}
+    <div class="col-md-3 col-sm-10">
+      <div class="thumbnail">
+        <img src="{{qiniuDownloadDomain+this.url}}" alt="...">
+        <div class="caption">
+          <h3>{{this.title}}</h3>
+          <span>{{this.brief}}</span>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="clearfix"></div>
+  <h2 class="sub-page-h2" id="important-dates">{{i18n.COMPANY.IMPORTANT_DATE}}</h2>
+  <div class="row important-dates">
+    {{#each(company.importantDates)}}
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-xs-6">{{this.date}}</div>
+        <div class="col-xs-6">{{this.event}}</div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

@@ -1,0 +1,52 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{i18n.SUPPORT.TITLE}}</title>
+<style type="text/css">
+  .panel-heading {
+    background-color: transparent !important;
+  }
+
+  .panel-body {
+    border: none !important;
+    color: #888;
+  }
+
+  .panel {
+    border: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="breadcrumbs hidden">
+  <a href="/" alt="breadcrumbs">Home</a> > <a href="/support">support</a> > {{category.title}}
+</div>
+<div class="pure-banner">
+  <h1 class="text-center">{{category.title}}</h1>
+</div>
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <h1></h1>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    {{#each(faqs)}}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading{{xindex}}">
+        <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{xindex}}" aria-expanded="true" aria-controls="collapse{{xindex}}">
+        {{this.question}}
+      </a>
+    </h4>
+      </div>
+      <div id="collapse{{xindex}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{xindex}}">
+        <div class="panel-body">
+          {{this.answer}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<div class="clearfix"></div>
+{{/block}}
+

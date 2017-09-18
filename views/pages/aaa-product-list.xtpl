@@ -1,0 +1,153 @@
+{{extend ("../layout")}}
+{{#block ("head")}}
+<title>{{applicationArea.name}}</title>
+<style type="text/css">
+  .application-area-products-sell-point {
+    margin-bottom: 80px;
+    font-family: "Segoe UI Semilight", "SegoeUI_semilight";
+    font-size: 20px;
+    color: #000;
+  }
+
+  .application-area-products-sell-point a {
+    color: #0078d7;
+  }
+.application-area-products-sell-point p{
+    white-space: pre-wrap;
+    text-align:justify;
+  }
+.sell-point-img{text-align:center;}
+ .sell-point-img img{
+    display:inline !important;
+ }
+
+  @media (min-width: 992px) {
+    .application-area-products-sell-point-desc-vertical {
+      width: 50%;
+      margin-left: 25%;
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+    .application-area-products-sell-point-desc-horizontal {
+      width: 75%;
+      padding-left: 15%;
+      padding-top: 15%;
+    }
+  }
+
+  .application-area-products-sell-point-desc-vertical {
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
+
+  .application-area-products-details {
+    border-bottom: solid 1px #efefef;
+  }
+
+  .application-area-products-subnav>ul {
+    margin: 0;
+    position: relative;
+  }
+
+  .application-area-products-subnav>ul>li {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .application-area-products-subnav>ul>li {
+      width: 100%;
+    }
+    .devices-list {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .application-area-products-subnav>ul>li>a {
+    margin: 0;
+    padding: 25px;
+    display: block;
+    color: #333;
+  }
+
+  .application-area-products-subnav>ul>li>a:hover,
+  .application-area-products-subnav>ul>li>a:focus {
+    background-color: #e7e7e7;
+    text-decoration: none;
+  }
+</style>
+{{/block}}
+
+{{#block ("body")}}
+<div class="container-fluid col-md-10 col-md-offset-1 padding-0">
+  <div class="breadcrumbs hidden">
+    <a href="/" alt="breadcrumbs">Home</a> > {{applicationArea.name}}
+  </div>
+  <div class="row application-area-products-details">
+    <div class="col-md-6">
+      <h3>{{applicationArea.name}}</h3>
+    </div>
+  </div>
+  {{#each(products)}}
+  {{#if(this.advantages[0].layout===1)}}
+  <div class="row application-area-products-sell-point">
+    <div class="col-md-12">
+      <div class="application-area-products-sell-point-desc-vertical">
+        <h2 class="text-center sub-page-h2">{{this.advantages[0].title}}</h2>
+        <p class="text-center">{{this.advantages[0].brief}}</p>
+        <div class="text-center"><a href="/product/{{this._id}}">{{i18n.COMMON.LEARN_MORE}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+      <div class="product sell-point-img">
+        <img src="{{qiniuDownloadDomain+this.advantages[0].url}}" alt="" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.advantages[0].layout===0)}}
+  <div class="row application-area-products-sell-point">
+    <div class="col-md-6 col-sm-12">
+      <div class="application-area-products-sell-point-desc-horizontal">
+        <h2 class="text-center sub-page-h2">{{this.advantages[0].title}}</h2>
+        <p class="text-center">{{this.advantages[0].brief}}</p>
+        <div class="text-center"><a href="/product/{{this._id}}">{{i18n.COMMON.LEARN_MORE}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <img src="{{qiniuDownloadDomain+this.advantages[0].url}}" alt="" class="img-responsive">
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.advantages[0].layout===3)}}
+  <div class="row application-area-products-sell-point">
+    <div class="col-md-12">
+      <div class="product sell-point-img">
+        <img src="{{qiniuDownloadDomain+this.advantages[0].url}}" alt="" class="img-responsive">
+      </div>
+      <div class="application-area-products-sell-point-desc-vertical">
+        <h2 class="text-center sub-page-h2">{{this.advantages[0].title}}</h2>
+        <p class="text-center">{{this.advantages[0].brief}}</p>
+        <div class="text-center"><a href="/product/{{this._id}}">{{i18n.COMMON.LEARN_MORE}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#if(this.advantages[0].layout===2)}}
+  <div class="row application-area-products-sell-point">
+    <div class="col-md-6 col-sm-12">
+      <img src="{{qiniuDownloadDomain+this.advantages[0].url}}" alt="" class="img-responsive">
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="application-area-products-sell-point-desc-horizontal">
+        <h2 class="text-center sub-page-h2">{{this.advantages[0].title}}</h2>
+        <p class="text-center">{{this.advantages[0].brief}}</p>
+        <div class="text-center"><a href="/product/{{this._id}}">{{i18n.COMMON.LEARN_MORE}} <i class="caret all-facing-right"></i></a></div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
+<div class="clearfix"></div>
+{{/block}}
+
